@@ -1,21 +1,22 @@
 import numpy as np
-x = np.array([1,2,4])
-y = np.array([1,3])
+x = np.array([0,1,2])
+y = np.array([0,1])
 
 probs = np.array([])
 pairs = []
 for numx in x:
     for numy in y:
         pairs.append((numx,numy))
-        probs = np.append(probs,(numx + numy)**2)
+        probs = np.append(probs,(numx + numy))
 print(pairs)
+print(probs)
 print(probs.sum())
 print ((probs/probs.sum()).sum())
 
 total = 0
 for ind, val in enumerate(probs):
-    #if pairs[ind][1]== pairs[ind][0]:
-    total += pairs[ind][0]*pairs[ind][1]*val/probs.sum()
+    if pairs[ind][1]== 1:
+        total += val/probs.sum()
 print(total)
 """
 for ind, val in enumerate(probs):
